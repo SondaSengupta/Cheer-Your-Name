@@ -1,30 +1,26 @@
  $( document ).ready(function() {
    $("#cheer").click(function(event) {
     event.preventDefault();
-    var name = $('#nameInput').val();
+    var name = $('#nameInput').val().toUpperCase();
     var $ul = $('#nameCheer');
     var $li = $('<li>');
-    $li.text(assertName(name));
+    $li.text(assertName(name) + ' ' + cheerFor(name) + ' ' + nameIsGreat(name) );
     $ul.append($li);
   })
 });
-
-
-
-// String Output "Your name is Lisa"
-// Turn name into string of letters
-// Turn all letters into lowercase
-// If there is an AEFHILMNORSX, then it uses 'an'
-// String "Give me [a/an] ... [letter]"
-// appendchild to DOM
 
 function assertName(name) {
   return "Your name is " + name + "!";
 };
 
+function makeNameCapitalized(name){
+  return name.toUpperCase();
+};
+
 function cheerFor(name){
   return name.split('').map(function(letter){
-    if (letter === ''){
+    if (letter === ' '){
+      return ' ';
     } else if (letter === 'A' ||
       letter === 'E' ||
       letter === 'F' ||

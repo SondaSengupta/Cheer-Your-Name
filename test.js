@@ -12,10 +12,10 @@ q.test("Your name is Another Name!", function(assert){
   assert.equal(assertName("Lisa"), "Your name is Lisa!");
 });
 
-// q.test("splitName(name)", function(assert){
-//   expectedSplitName = "B", "O", "B";
-//   assert.equal(splitName("BOB"), expectedSplitName);
-// });
+q.test("makeNameCapitalized", function(assert){
+  expectedCapital = "LISA";
+  assert.equal(makeNameCapitalized("Lisa"), expectedCapital);
+});
 
 q.test("cheerfor(name)", function(assert){
   expectedCheer = "Give me an... A!\nGive me an... L!";
