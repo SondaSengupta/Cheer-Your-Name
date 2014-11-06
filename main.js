@@ -1,12 +1,13 @@
-document.addEventListener('DOMContentLoaded', function (){
-  document.getElementById('cheer').addEventListener('click', function(){
-    var name = document.forms[0].nameInput.value
-    var $ul = document.getElementById('nameCheer');
-    $ul.innerHTML = '';
-    assertName(name);
-
+ $( document ).ready(function() {
+   $("#cheer").click(function(event) {
+    event.preventDefault();
+    var name = $('#nameInput').val();
+    var $ul = $('#nameCheer');
+    var $li = $('<li>');
+    $li.text(assertName(name));
+    $ul.append($li);
   })
-})
+});
 
 
 
@@ -17,15 +18,32 @@ document.addEventListener('DOMContentLoaded', function (){
 // String "Give me [a/an] ... [letter]"
 // appendchild to DOM
 
-
-function productArray(array){
-  return _.reduce(array, function(prev, next){
-    return prev * next;
-  });
-}
-
 function assertName(name) {
-  $('body').append("<p> Your name is <p>")
-  $('p').append(name);
-  return "Your name is " + name;
-}
+  return "Your name is " + name + "!";
+};
+
+function cheerFor(name){
+  return name.split('').map(function(letter){
+    if (letter === ''){
+    } else if (letter === 'A' ||
+      letter === 'E' ||
+      letter === 'F' ||
+      letter === 'H' ||
+      letter === 'I' ||
+      letter === 'L' ||
+      letter === 'M' ||
+      letter === 'N' ||
+      letter === 'O' ||
+      letter === 'R' ||
+      letter === 'S' ||
+      letter === 'X') {
+        return "Give me an... " + letter + "!";
+      } else {
+        return "Give me a... " + letter + "!";
+      };
+  }).join("\n");
+};
+
+function nameIsGreat(name){
+  return name + " is Great!";
+};

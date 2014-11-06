@@ -1,15 +1,33 @@
 var q = QUnit;
 
-q.test( "hello test", function( assert ) {
-  assert.ok( 1 == "1", "Passed!" );
+q.test( "Is qUnit Working?", function( assert ) {
+  assert.ok( 1 == "1", "Yes, ready to go!" );
 });
 
-q.test( "return product of an array", function(assert){
-  var array = [1,2,3,4,5,6,7,8,9];
-  assert.equal( productArray(array), 362880 );
+q.test("Your name is Eliza!", function(assert){
+  assert.equal(assertName("Eliza"), "Your name is Eliza!");
 });
 
-q.test("Your name is !", function(assert){
-  var name = "Lisa";
-  assert.equal(assertName(name), "Your name is Lisa");
+q.test("Your name is Another Name!", function(assert){
+  assert.equal(assertName("Lisa"), "Your name is Lisa!");
+});
+
+// q.test("splitName(name)", function(assert){
+//   expectedSplitName = "B", "O", "B";
+//   assert.equal(splitName("BOB"), expectedSplitName);
+// });
+
+q.test("cheerfor(name)", function(assert){
+  expectedCheer = "Give me an... A!\nGive me an... L!";
+  assert.equal(cheerFor("AL"), expectedCheer);
+});
+
+q.test("cheerfor(name)", function(assert){
+  expectedCheer = "Give me a... B!\nGive me an... O!\nGive me a... B!";
+  assert.equal(cheerFor("BOB"), expectedCheer);
+});
+
+q.test("nameiSGreat", function(assert){
+  ending = "BOB is Great!";
+  assert.equal(nameIsGreat("BOB"), ending);
 });
